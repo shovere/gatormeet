@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gatormeet-17f79": {
+      "hosting": {
+        "gatormeet": [
+          "gatormeet-17f79"
+        ]
+      }
+    }
+  }
+}
