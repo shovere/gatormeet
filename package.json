@@ -1,0 +1,17 @@
+{
+  "name": "gatormeet",
+  "version": "0.0.1",
+  "description": "no",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ethan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.4.2"
+  }
+}
