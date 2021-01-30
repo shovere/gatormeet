@@ -14,7 +14,7 @@ const db = admin.firestore();
 
 app.use(bodyParser.json()); // for parsing application/json
 
-app.get("/test", (req, res) => {
+app.get("", (req, res) => {
   res.send("test");
 });
 
@@ -23,9 +23,9 @@ app.get("/test/doAddition", (req, res) => {
   res.send(k.toString());
 });
 
-app.post("/test/bitch", (req, res) => {
+app.post("/test/bby", (req, res) => {
   const i = req.body.i;
-  res.send("bitch" + i);
+  res.send("bby" + i);
 });
 
 app.post("/newMeeting", (req, res) => {
@@ -58,5 +58,5 @@ app.post("/getMeetings", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+    console.log("working")
 });
