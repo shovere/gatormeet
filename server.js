@@ -19,7 +19,7 @@ app.get("", (req, res) => {
 });
 
 app.get("/test/doAddition", (req, res) => {
-  let k = 2 + 2;
+  let k = 2 + 4;
   res.send(k.toString());
 });
 
