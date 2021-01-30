@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const admin = require("firebase-admin");
 const serviceAccount = require("./gatormeet-17f79-firebase-adminsdk-ujwcq-28f30968eb.json");
 
@@ -42,6 +42,7 @@ app.post("/newMeeting", (req, res) => {
     });
 });
 
+//returns an array of the meeting owner names
 app.post("/getMeetings", (req, res) => {
   const meetingName = req.body.meetingName;
   db.collection("Meetings")
