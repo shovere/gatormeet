@@ -1,0 +1,23 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBUTfG-EOLImQi6_MvvF2I1GBczMui_w24",
+    authDomain: "gatormeet-17f79.firebaseapp.com",
+    projectId: "gatormeet-17f79",
+    storageBucket: "gatormeet-17f79.appspot.com",
+    messagingSenderId: "993578277870",
+    appId: "1:993578277870:web:c446c76c431ebe2a684cff",
+    measurementId: "G-8QRWFDW1EY"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
