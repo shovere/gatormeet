@@ -57,6 +57,24 @@ app.post("/getMeetings", (req, res) => {
     });
 });
 
+app.post("/meetingLists", (req, res) => {
+  const ownerName = req.body.ownerName;
+  db.collection("Meetings")
+  .where("Owner", "==", ownerName)
+  .get()
+  .then((data) => {
+    let temp = []  
+      data.forEach((meeting) => {
+          temp.push(meeting.data().Name)
+      });
+    res.send(temp);
+  })
+  .catch(() =>
+    {
+res.send("Owner name not found");
+    })
+});
+
 app.listen(port, () => {
     console.log("working")
 });
