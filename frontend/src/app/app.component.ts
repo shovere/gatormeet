@@ -21,6 +21,7 @@ export class AppComponent {
     })
   }
 
+  //<button (click)="onClick()">Click Me!</button>
 
   onClick() {
     this.db.collection('Counter').add({ count: 1 })
