@@ -109,40 +109,77 @@ app.post("/postPollChoice", (req, res) =>
   const choice = req.body.choice 
   const email = req.body.email
   const ID = req.body.ID
+  let begone = false
 
-  if (choice == 0) {
+  db.collection("Meetings").doc(ID).get().then((docRef) => {
+      let ls = docRef.data().Total;
+      ls.forEach((element) => {
+        if(element == email){
+          begone = true
+        }
+      })
+  });
+
+ if(!begone)
+ {
+    if (choice == 0) {
+      db.collection("Meetings")
+        .doc(ID)
+        .update({ NOTA: FieldValue.arrayUnion(email) }).then(() => {
+          res.send("Meeting Created");
+        })
+        .catch(() => {
+          res.send("Meeting Creation Failed");
+        });
+    }
+    if (choice == 1) {
+      db.collection("Meetings")
+        .doc(ID)
+        .update({ Option1: FieldValue.arrayUnion(email) })
+        .then(() => {
+          res.send("Meeting Created");
+        })
+        .catch(() => {
+          res.send("Meeting Creation Failed");
+        });
+    }
+    if (choice == 2) {
+      db.collection("Meetings")
+        .doc(ID)
+        .update({ Option2: FieldValue.arrayUnion(email) })
+        .then(() => {
+          res.send("Meeting Created");
+        })
+        .catch(() => {
+          res.send("Meeting Creation Failed");
+        });
+    }
 
     db.collection("Meetings")
       .doc(ID)
-      .update({ NOTA: FieldValue.arrayUnion(email) });
-  }
-  if(choice == 1)
-  {
-       db.collection("Meetings").doc(ID).get().then((docRef) => {
-      let ls = docRef.data().Option1;
-      ls.forEach((element) => {
-        
-      })
-      });
-      
+      .update({ Total: FieldValue.arrayUnion(email) })
+ }
 
-      db.collection("Meetings")
-        .doc(ID)
-        .update({ Option1:FieldValue.arrayUnion(email) }).then(() => {
-      res.send("Meeting Created");
-    })
-    .catch(() => {
-      res.send("Meeting Creation Failed");
-    });
-  }
-  if(choice == 2)
-  {
-      db.collection("Meetings").doc(ID).update({Option2 : FieldValue.arrayUnion(email)})
-  }
+
+
   
-   db.collection("Meetings").doc(ID).update({Total: FieldValue.arrayUnion(email)})
-   
 })
+
+app.get("/getdata", (req, res) => { 
+  
+  const ID = req.body.ID
+
+  db.collection("Meetings")
+    .doc(ID)
+    .get()
+    .then((docRef) => {
+
+      let ls = docRef.data();
+      res.send(ls)
+    });
+
+});
+
 
 
 app.listen(port, () => {
