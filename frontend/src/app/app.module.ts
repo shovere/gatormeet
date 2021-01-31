@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LandingComponent } from './landing/landing.component';
+import { CreatePollComponent } from './create-poll/create-poll.component';
+import { ResultsComponent } from './results/results.component';
+import { PollingComponent } from './polling/polling.component';
 
 const config = {
   apiKey: "AIzaSyBUTfG-EOLImQi6_MvvF2I1GBczMui_w24",
@@ -20,13 +26,20 @@ const config = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingComponent,
+    CreatePollComponent,
+    ResultsComponent,
+    PollingComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
