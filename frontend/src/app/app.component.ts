@@ -13,7 +13,8 @@ export class AppComponent {
 
   constructor(
     private db: AngularFirestore
-  ) {
+  ) 
+  {
     const things = db.collection('things').valueChanges()
 
     things.subscribe(data => {

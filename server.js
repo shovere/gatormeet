@@ -82,27 +82,23 @@ res.send("Owner name not found");
 //user defined question
 //unique token # 8 digits
 // use json object to transfer data
-app.post("/newMeeting", (req, res) => {
+app.post("/create-poll", (req, res) => {
 
-  const meetingName = req.body.meetingName
-  const ownerEmail = req.body.ownerEmail
   const question = req.body.question
-  const token = 
-
-  db.collection("Meetings")
-  .where("Owner", "==", ownerName)
-  .get()
-  .then((data) => {
-    let temp = []  
-      data.forEach((meeting) => {
-          temp.push(meeting.data().Name)
-      });
-    res.send(temp);
-  })
-  .catch(() =>
-    {
-res.send("Owner name not found");
+  const ownerEmail = req.body.ownerEmail
+  const answerOne = req.body.answer1
+  const answerTwo = req.body.answer2
+  const ID = generateUniqueToken()
+ 
+   db.collection("Meetings")
+    .doc()
+    .set({ Answer1Text: answerOne, Answer2Text: answerTwo, OwnerEmail:ownerEmail, Question : question, UniqueID: ID})
+    .then(() => {
+      res.send("Meeting Created");
     })
+    .catch(() => {
+      res.send("Meeting Creation Failed");
+    });
 });
 
 // Create new entries into the database
