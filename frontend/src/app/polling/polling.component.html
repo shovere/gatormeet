@@ -6,15 +6,14 @@
         <form [formGroup]="createPollForm" (ngSubmit)="goToPolling()">
             <br><br>
             <hr class="line-style">
-                
-                
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-12 form-control reg-font" >
+                        <div class="col-md-12 extra reg-font" >
                              Question goes here
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="form-group email">
                     <div class="row">
                     <input type="text" placeholder="Email" formControlName="email" class="col-md-12 form-control" />
@@ -51,12 +50,14 @@
                             </div>
                         </div>
                     </div>
-            <div class="form-group col-md-12">
-                <button [disabled]="loading" class="btn btn-primary">
+            <div class="form-group col-md-12 ff">
+                <button [disabled]="loading" class="btn btn-primary extra">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Submit Vote
                 </button>
-                <p class="message"><a href="/landing">Cancel</a></p>
+                <div class="col-md-12 ff">
+                    <p class="message"><a href="/landing">Cancel</a></p>
+                </div>
             </div>
         </form>
         

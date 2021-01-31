@@ -20,6 +20,26 @@ html, body{
     border-radius: 0px;
   }
 
+  .extra{
+    background-color: black;
+    border-top: black;
+    border-left:black;
+    border-right: black;
+    border-bottom: black;
+    //font-family: OCR A Std, monospace;
+    //margin-right: 30px;
+    //justify-content: center;
+    font-size: 30px;
+    border-radius: 0px;
+  }
+
+  .ff{
+    font-size: 20px;
+    text-align: center;
+    font-family: "A Goblin Appears!";
+  
+  }
+
   .login-page{
     width: auto;
     height: auto;
@@ -98,10 +118,4 @@ html, body{
     text-align: center;
   }
 
-  .ff{
-    font-size: 15px;
-    text-align: center;
-    font-size: 14px;
-    font-family: OCR A Std, monospace;
-    color:chartreuse;
-  }
+  
