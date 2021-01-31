@@ -74,7 +74,40 @@ app.post("/meetingLists", (req, res) => {
 res.send("Owner name not found");
     })
 });
+
+
+
+//meeting
+//owneremail
+//user defined question
+//unique token # 8 digits
+// use json object to transfer data
+app.post("/newMeeting", (req, res) => {
+
+  const meetingName = req.body.meetingName
+  const ownerEmail = req.body.ownerEmail
+  const question = req.body.question
+  const token = 
+
+  db.collection("Meetings")
+  .where("Owner", "==", ownerName)
+  .get()
+  .then((data) => {
+    let temp = []  
+      data.forEach((meeting) => {
+          temp.push(meeting.data().Name)
+      });
+    res.send(temp);
+  })
+  .catch(() =>
+    {
+res.send("Owner name not found");
+    })
+});
+
 // Create new entries into the database
+
+
 function newMeeting()
 {
   // include one of the three methods to trigger this function in the front end code
@@ -87,9 +120,12 @@ function newMeeting()
   const data = {
     // How to get values from drop down
     // https://stackoverflow.com/questions/4029281/get-drop-down-value
+
+
+
     MeetingName: document.getElementById("DROPDOWNMENU").value,
     OwnerEmail: document.getElementById("DROPDOWNMENU").value,
-    FirstName: document.getElementById("DROPDOWNMENU").value,
+    FirstName: document.getElementById("DROPDOWNMENU").value,//
     LastName: document.getElementById("DROPDOWNMENU").value,
     UniqueToken: document.getElementById("DROPDOWNMENU").value,
   }
@@ -122,7 +158,7 @@ function pollResult()
 }
 
 // Generate unique 8 digit ID with node.js - SHOULD use an already built function to ensure uniqueness
-var crypto = require('crypto');
+const crypto = require('crypto');
 function generateUniqueToken()
 {
   // https://firebase.google.com/docs/firestore/query-data/queries
