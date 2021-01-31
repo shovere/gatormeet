@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +8,18 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
- 
+  findEvent: any;
+  loading: boolean;
+  submitted = false;
 
-  constructor(private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
+    this.findEvent = this.formBuilder.group({
+      uniqueID: ['', Validators.required]
+      });
   }
 
   goToCreate(): void {
@@ -19,8 +27,11 @@ export class LandingComponent implements OnInit {
 
   }
 
-  goToResults(): void{
-    this.router.navigate(['/results']);
+  goToPolling(): void{
+    this.submitted = true;
+    this.loading = true;
+    console.log(this.findEvent.value.uniqueID)
+    this.router.navigate(['/polling']);
 
   }
 

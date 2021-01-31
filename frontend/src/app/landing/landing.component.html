@@ -3,10 +3,24 @@
     <p>WELCOME TO GATORMEET</p>
     <div>
         <h1>
-            fhvbfvb
+            Click Below To Start!
         </h1>
     </div>
+    <form [formGroup]="findEvent" (ngSubmit)="goToPolling()">
+        <br><br>
+       <div class="reg-font">Create a Poll</div>
+        <div class="form-group">
+            <input type="text" placeholder="Poll ID" formControlName="uniqueID" class="form-control" />
+                <div *ngIf="submitted" class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Vote!
+                </button>
+            </div>
+            </form>
     <button (click)="goToCreate()">Create poll</button>
-    <button (click)="goToResults()">View Results</button>
     </div>
 </body>
