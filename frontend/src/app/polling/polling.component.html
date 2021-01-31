@@ -1,2 +1,65 @@
-<p>polling works!</p>
-<button (click)="goToResults()">Submit</button>
+
+<body>
+    <div class="bg-image"></div>
+    <div class="login-page">
+    <div class="container">
+        <form [formGroup]="createPollForm" (ngSubmit)="goToPolling()">
+            <br><br>
+            <hr class="line-style">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12 extra reg-font" >
+                             Question goes here
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group email">
+                    <div class="row">
+                    <input type="text" placeholder="Email" formControlName="email" class="col-md-12 form-control" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group login-form">
+                                <h4>First Choice Goes Here</h4>
+                                <input type="checkbox" placeholder="First Option" formControlName="answer1" class="form-control" />
+                                <div *ngIf="submitted" class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-md-4">
+                        <div class="form-group login-form">
+                            <h4>Second Choice Goes Here</h4>
+                            <input type="checkbox" placeholder="Second Option" formControlName="answer2" class="form-control" />
+                                <div *ngIf="submitted" class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    
+                  
+                        <div class="col-md-4">
+                            <div class="form-group login-form none">
+                                <h4>None</h4>
+                                <input type="checkbox" formControlName="none" class="form-control" />
+                                <div *ngIf="submitted" class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="form-group col-md-12 ff">
+                <button [disabled]="loading" class="btn btn-primary extra">
+                    Submit Vote
+                </button>
+                <p class="message"><a href="/">Cancel</a></p>
+
+            </div>
+        </form>
+        
+
+    </div>
+</div>
+</body>

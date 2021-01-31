@@ -3,41 +3,64 @@
     <div class="bg-image"></div>
     <div class="login-page">
     <div class="container">
-        <div class="login-form center">
         <form [formGroup]="createPollForm" (ngSubmit)="goToPolling()">
             <br><br>
-           <div class="reg-font">Create a Poll</div>
+           <div class="reg-font col-md-12">CREATE A POLL</div>
             <hr class="line-style">
-            <div class="form-group">
-                <input type="text" placeholder="Email" formControlName="email" class="form-control" />
+            <div class="form-group ">
+                <div class="row">
+                <input type="text" placeholder="Email" formControlName="email" class="col-md-12 form-control" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                     </div>
                 </div>
+                </div>
+                
                 <div class="form-group">
-                    <input type="text" placeholder="Question" formControlName="question" class="form-control" />
+                    <div class="row">
+                    <input type="text" placeholder="Question" formControlName="question" class="col-md-12 form-control" />
                         <div *ngIf="submitted" class="invalid-feedback">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="First Option" formControlName="answer1" class="form-control" />
-                            <div *ngIf="submitted" class="invalid-feedback">
+                </div>
+                <br>
+                <br>
+                <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group login-form">
+                                <h4>ENTER FIRST OPTION</h4>
+                                <input type="text" placeholder="First Option" formControlName="answer1" class="form-control" />
+                                <div *ngIf="submitted" class="invalid-feedback">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="form-group login-form">
+                            <h4>ENTER SECOND OPTION</h4>
                             <input type="text" placeholder="Second Option" formControlName="answer2" class="form-control" />
                                 <div *ngIf="submitted" class="invalid-feedback">
                                 </div>
                             </div>
-            <div class="form-group">
-                <button [disabled]="loading" class="btn btn-primary">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Login
-                </button>
-                <p class="message"><a href="/landing">Cancel</a></p>
-            </div>
+                        </div>
+                    </div>
+                    <br>
+              <div class="col-md-12 ff">
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary extra">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Enter
+                    </button>
+
+                    <p class="message"><a href="/">Cancel</a></p>
+
+                </div>
+                </div>
+
+            
         </form>
-    </div>
+        
+
     </div>
 </div>
 </body>

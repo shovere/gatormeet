@@ -6,15 +6,54 @@
         color:beige;
 }
 
+.extra{
+        background-color: black;
+        border-top: black;
+        border-left:black;
+        border-right: black;
+        border-bottom: black;
+        //font-family: OCR A Std, monospace;
+        //margin-right: 30px;
+        //justify-content: center;
+        //font-size: 30px;
+        border-radius: 0px;
+      }
+    
+      .ff{
+        font-size: 20px;
+        text-align: center;
+        font-family: "A Goblin Appears!";
+        color:beige;
+        background-color: black;
+      
+      }
+
+.form{
+        padding-top: 0px;
+}
+
+.buttonPad{
+        padding-top:75px;
+
+}
+
 h1{
         font-size: 15px;
+}
+.pad{
+        padding-top: 30px;
 }
 
 html, body {
         margin: 0;
-        height: 75ch;
+        height: 86ch;
+        width: 100%;
         text-align: center;
         padding-top: 10%;
         background-color: black;
         
+}
+
+.stuff{
+        padding-left: 50px;
 }

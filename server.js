@@ -75,6 +75,76 @@ app.post("/meetingLists", (req, res) => {
 res.send("Owner name not found");
     })
 });
+// Create new entries into the database
+function newMeeting()
+{
+  // include one of the three methods to trigger this function in the front end code
+  // https://stackoverflow.com/questions/1947263/using-an-html-button-to-call-a-javascript-function
+  // ^^ 3 ways to trigger function execution when button pressed
+
+
+  // Add a new document in collection "meeting"
+  // https://firebase.google.com/docs/firestore/manage-data/add-data
+  const data = {
+    // How to get values from drop down
+    // https://stackoverflow.com/questions/4029281/get-drop-down-value
+    MeetingName: document.getElementById("DROPDOWNMENU").value,
+    OwnerEmail: document.getElementById("DROPDOWNMENU").value,
+    FirstName: document.getElementById("DROPDOWNMENU").value,
+    LastName: document.getElementById("DROPDOWNMENU").value,
+    UniqueToken: document.getElementById("DROPDOWNMENU").value,
+  }
+  const res = await db.collection("Meetings").doc(TOKEN).set(data);
+}
+// my second time at a commit
+function goToMeeting()
+{
+ // https://stackoverflow.com/questions/55777601/how-to-append-an-element-into-array-inside-a-firestore-document
+ // How to append to an array
+}
+function pollResult()
+{
+    //https://firebase.google.com/docs/firestore/manage-data/add-data
+  // ^^ How to increment data, ctrl+F increment article section
+
+  const admin = require('firebase-admin');
+  const meetingsRef = db.collection('Meetings').doc(TOKEN).set(data);
+  if(document.getElementById("someButton").value == true)
+  {
+    const res = await meetingsRef.update(
+    {yesResult : admin.firestore.FieldValue.increment(1)});
+  }
+  else
+  {
+    const res = await meetingsRef.update(
+    {yesResult : admin.firestore.FieldValue.increment(1)});
+  }
+ 
+}
+
+// Generate unique 8 digit ID with node.js - SHOULD use an already built function to ensure uniqueness
+var crypto = require('crypto');
+function generateUniqueToken()
+{
+  // https://firebase.google.com/docs/firestore/query-data/queries
+  // ^^ guide to simple queries in js for google firestore
+  var token = randomHexValue(8);
+  const meetingsRef = db.collection('Meetings')
+  const queryResult = await meetingsRef.where("UniqueToken", "==", token).get();
+  while(!queryResult.empty)
+  {
+    token = randomHexValue(8);
+    queryResult = await meetingsRef.where("UniqueToken", "==", token).get();
+  }
+  return token;
+}
+
+function randomHexValue(len)
+{
+  // https://stackoverflow.com/questions/34386914/generate-unique-random-string-with-javascript
+  // convert to hex
+  return crypto.randomBytes(Math.ceil(len/2)).toString('hex').slice(0,len).toUpperCase(); 
+}
 
 
 
