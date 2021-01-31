@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -9,13 +10,33 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PollingComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  createPollForm: FormGroup;
+  loading: boolean;
+  submitted = false;
+
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
+    this.createPollForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      question: ['', Validators.required],
+      answer1: ['', Validators.required],
+      answer2: ['', Validators.required]
+
+  });
+
   }
 
-  goToResults(): void{
-    this.router.navigate(['/results']);
+  get f() { return this.createPollForm.controls; }
 
+
+  goToPolling(): void {
+    this.submitted = true;
+    this.loading = true;
+    console.log(this.createPollForm.value)
+    this.router.navigate(['/polling']);
+   
   }
 }
+
+
