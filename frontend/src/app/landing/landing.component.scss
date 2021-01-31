@@ -6,18 +6,33 @@
         color:beige;
 }
 
+
+
+.form{
+        padding-top: 0px;
+}
+
+.buttonPad{
+        padding-top:75px;
+}
+
 h1{
         font-size: 15px;
 }
 .pad{
-        padding-top: 15px;
+        padding-top: 30px;
 }
 
 html, body {
         margin: 0;
-        height: 75ch;
+        height: 86ch;
+        width: 100%;
         text-align: center;
         padding-top: 10%;
         background-color: black;
         
+}
+
+.stuff{
+        padding-left: 50px;
 }
