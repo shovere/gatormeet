@@ -23,7 +23,7 @@
                     </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group login-form">
                                 <h4>First Choice Goes Here</h4>
                                 <input type="checkbox" placeholder="First Option" formControlName="answer1" class="form-control" />
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group login-form">
                             <h4>Second Choice Goes Here</h4>
                             <input type="checkbox" placeholder="Second Option" formControlName="answer2" class="form-control" />
@@ -39,10 +39,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group login-form">
+                    
+                  
+                        <div class="col-md-4">
+                            <div class="form-group login-form none">
                                 <h4>None</h4>
                                 <input type="checkbox" formControlName="none" class="form-control" />
                                 <div *ngIf="submitted" class="invalid-feedback">
@@ -52,7 +52,6 @@
                     </div>
             <div class="form-group col-md-12 ff">
                 <button [disabled]="loading" class="btn btn-primary extra">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Submit Vote
                 </button>
                 <p class="message"><a href="/">Cancel</a></p>
