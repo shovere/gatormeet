@@ -14,8 +14,7 @@ html, body{
     border-left:black;
     border-right: black;
     border-bottom: solid 3px beige;
-    width: 50px;
-  
+    font-family: OCR A Std, monospace;
     margin-right: 100px;
     justify-content: center;
     border-radius: 0px;
@@ -28,8 +27,7 @@ html, body{
     margin: auto;
     justify-content: center;  }
   
-  .col-md-6{
-     }
+  
 
   .login-form {
     z-index: 1;
@@ -38,9 +36,10 @@ html, body{
     padding: 30px;
     margin-left: 35px; 
     text-align: center;
-    border: 5px solid #DC3A3A;  
-    outline:5px solid#FFE95D;
-    font-family: OCR A Std, monospace;
+    border: 5px solid #504b4b;  
+    outline:5px solid#7a7971;
+    font-family: "A Goblin Appears!";
+    font-size: 80px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
 
@@ -56,7 +55,8 @@ html, body{
     font-size: 14px;
     font-family: OCR A Std, monospace;
   }
-  
+
+
   .login-form button {
     font-family: OCR A Std, monospace;
     text-transform: uppercase;
@@ -98,4 +98,12 @@ html, body{
     font-size: 30px;
     color: beige;
     text-align: center;
+  }
+
+  .ff{
+    font-size: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-family: OCR A Std, monospace;
+    color:chartreuse;
   }
