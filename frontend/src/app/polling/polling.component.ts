@@ -19,9 +19,9 @@ export class PollingComponent implements OnInit {
   ngOnInit(): void {
     this.createPollForm = this.formBuilder.group({
       email: ['', Validators.required],
-      question: ['', Validators.required],
       answer1: ['', Validators.required],
-      answer2: ['', Validators.required]
+      answer2: ['', Validators.required],
+      none: ['', Validators.required]
 
   });
 
@@ -34,7 +34,7 @@ export class PollingComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
     console.log(this.createPollForm.value)
-    this.router.navigate(['/polling']);
+    this.router.navigate(['/results']);
    
   }
 }
